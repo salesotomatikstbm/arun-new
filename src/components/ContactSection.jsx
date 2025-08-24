@@ -6,6 +6,7 @@ import {
   Phone,
   Send,
 } from "lucide-react";
+import { FaPinterest } from "react-icons/fa"; // ✅ Pinterest icon
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -26,32 +27,32 @@ export const ContactSection = () => {
     const newErrors = {};
 
     if (!formData.Name.trim()) {
-      newErrors.Name = 'Name is required';
+      newErrors.Name = "Name is required";
     } else if (!/^[A-Za-z\s]+$/.test(formData.Name.trim())) {
-      newErrors.Name = 'Name must contain only letters';
+      newErrors.Name = "Name must contain only letters";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.Email.trim()) {
-      newErrors.Email = 'Email is required';
+      newErrors.Email = "Email is required";
     } else if (!emailRegex.test(formData.Email)) {
-      newErrors.Email = 'Enter a valid email';
+      newErrors.Email = "Enter a valid email";
     }
 
     if (!formData.Phone.trim()) {
-      newErrors.Phone = 'Phone number is required';
+      newErrors.Phone = "Phone number is required";
     } else if (!/^[0-9]{10}$/.test(formData.Phone)) {
-      newErrors.Phone = 'Enter a valid 10-digit phone number';
+      newErrors.Phone = "Enter a valid 10-digit phone number";
     }
 
     if (!formData.Subject.trim()) {
-      newErrors.Subject = 'Subject is required';
+      newErrors.Subject = "Subject is required";
     }
 
     if (!formData.Message.trim()) {
-      newErrors.Message = 'Message is required';
+      newErrors.Message = "Message is required";
     } else if (formData.Message.length < 10) {
-      newErrors.Message = 'Message must be at least 10 characters long';
+      newErrors.Message = "Message must be at least 10 characters long";
     }
 
     setErrors(newErrors);
@@ -66,7 +67,7 @@ export const ContactSection = () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw5BkUBb6gWFty384bxEC2KmhpkVVkILgVfZU-qZCU3ljVWA1rDjnI498CO6TyF0LWpzQ/exec",
+        "https://script.google.com/macros/s/AKfycbw3im1xywKNUwy34ZiXFahLrKHyGn2ZMulzaDh0uNKHD5APawV9WH25TLz7aorrM5FklQ/exec",
         {
           method: "POST",
           headers: {
@@ -77,14 +78,14 @@ export const ContactSection = () => {
       );
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
 
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      
+
       setFormData({
         Name: "",
         Email: "",
@@ -165,7 +166,7 @@ export const ContactSection = () => {
 
             <div className="pt-8">
               <h3 className="text-2xl font-semibold mb-6">Connect With Me</h3>
-              
+
               <div className="flex space-x-4 justify-start">
                 <a
                   href="https://www.linkedin.com/in/arun-g-8422a3240/"
@@ -187,6 +188,13 @@ export const ContactSection = () => {
                   rel="noopener noreferrer"
                 >
                   <Github className="h-5 w-5 hover:text-primary" />
+                </a>
+                <a
+                  href="https://in.pinterest.com/arungwork63/icons"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaPinterest className="h-5 w-5 hover:text-primary" />
                 </a>
               </div>
             </div>
@@ -213,7 +221,9 @@ export const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Arun G..."
               />
-              {errors.Name && <p className="text-red-500 text-sm mt-1">{errors.Name}</p>}
+              {errors.Name && (
+                <p className="text-red-500 text-sm mt-1">{errors.Name}</p>
+              )}
             </div>
 
             <div>
@@ -230,7 +240,9 @@ export const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="arungwork63@gmail.com"
               />
-              {errors.Email && <p className="text-red-500 text-sm mt-1">{errors.Email}</p>}
+              {errors.Email && (
+                <p className="text-red-500 text-sm mt-1">{errors.Email}</p>
+              )}
             </div>
 
             <div>
@@ -247,7 +259,9 @@ export const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="+91 63837 91772"
               />
-              {errors.Phone && <p className="text-red-500 text-sm mt-1">{errors.Phone}</p>}
+              {errors.Phone && (
+                <p className="text-red-500 text-sm mt-1">{errors.Phone}</p>
+              )}
             </div>
 
             <div>
@@ -264,7 +278,9 @@ export const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Regarding a project..."
               />
-              {errors.Subject && <p className="text-red-500 text-sm mt-1">{errors.Subject}</p>}
+              {errors.Subject && (
+                <p className="text-red-500 text-sm mt-1">{errors.Subject}</p>
+              )}
             </div>
 
             <div>
@@ -281,7 +297,9 @@ export const ContactSection = () => {
                 placeholder="Hello, I'd like to talk about..."
                 rows="4"
               />
-              {errors.Message && <p className="text-red-500 text-sm mt-1">{errors.Message}</p>}
+              {errors.Message && (
+                <p className="text-red-500 text-sm mt-1">{errors.Message}</p>
+              )}
             </div>
 
             <button

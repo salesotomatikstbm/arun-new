@@ -98,18 +98,15 @@ export const AboutSection = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold animate-fade-in">
-             FrontEnd Developer (React Js)
+             Front-End Developer (React Js)
             </h3>
 
             <p className="text-justify indent-10 md:text-lg tracking-tight text-muted-foreground animate-fade-in-delay-1">
-             Seeking a responsible position to apply my skills and experience in an innovative organization that offers
-opportunities for professional growth.
-
+            4 + years of experience in front-end development, delivering responsive and high-performing web applications. Skilled in HTML, CSS, JavaScript, ReactJS & Next.js Knowledge of CMS
             </p>
 
             <p className="text-justify indent-10 md:text-lg tracking-tight text-muted-foreground animate-fade-in-delay-2">
-             Over 4+ years of experience in front-end technologies, including HTML, CSS, JavaScript, ReactJS, Redux,
-React Router, Bootstrap, Tailwind CSS, Next.js, CMS, and SEO.
+          platforms and SEO optimization Familiar with Agile methodologies and team collaboration
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center animate-fade-in-delay-3">

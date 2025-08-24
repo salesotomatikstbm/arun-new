@@ -10,6 +10,8 @@ const skills = [
   { name: "HTML5", level: 95, category: "core" },
   { name: "CSS3", level: 85, category: "core" },
   { name: "JavaScript", level: 90, category: "core" },
+    { name: "Node Js", level: 70, category: "core" },
+      { name: "NPM", level: 70, category: "core" },
   { name: "Java", level: 80, category: "core" },
   { name: "Python", level: 70, category: "core" },
 
